@@ -1,0 +1,75 @@
+<div class="container" style="margin-top: 30px;">
+	<div class="row"
+		ng-controller="UsersCtrl as UsersCtrl">
+		<div class="col-md-4">
+
+			<form>
+			  <div class="form-group">
+			    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Name"
+			    ng-model="UsersCtrl.userName">
+			  </div>
+			  <div class="form-group">
+			    <input type="text" class="form-control" id="exampleDropdownFormEmail2" placeholder="Surname"
+			    ng-model="UsersCtrl.userSurname">
+			  </div>
+			  <button type="submit" class="btn btn-info" ng-click = "UsersCtrl.addUser()">Add</button>
+			  <a type="submit" class="btn btn-info" ng-click = "UsersCtrl.enter()">Enter</a>
+			</form>
+
+			<form>   
+			  <div class="form-group">
+			    <label style="color: red;" for="exampleFormControlSelect2">{{UsersCtrl.info}}</label>
+			    <div style="height:420px;" multiple class="form-control" id="exampleFormControlSelect2">
+					
+					<table
+					ng-repeat="user in UsersCtrl.users"
+					ng-controller="UserCtrl as UserCtrl">
+				      <tr class="form-control">
+				      	<td>
+				      		<a ng-click = "UsersCtrl.correspondence(user)"
+
+				      		>{{user.name}} {{user.surname}}
+				      		</a>
+				      		<a style="color: red;" ng-click = "UserCtrl.removeUser(user)">X</a>
+						</td>	
+					  </tr>
+			      	</table>
+
+			    </div>
+			  </div>
+			</form>
+		</div>	
+
+		<div class="col-md-5">
+			<form>
+			  <div class="form-group">
+			    <label for="exampleFormControlSelect2">Posts</label>
+
+			    <select style="height:460px;" multiple class="form-control" id="exampleFormControlSelect2"
+				ng-controller="MessagesCtrl as MessagesCtrl">
+
+			      <option class="option2"
+			      ng-repeat="msg in UsersCtrl.arr_messages track by $index">
+			      	{{msg}}
+			  	  </option>
+
+			    </select>
+
+			  </div>
+			</form>
+
+			<form
+			ng-change="change()" ng-model="UsersCtrl.msg">
+
+			  <div class="form-group">
+			    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Message"
+			    ng-model="UsersCtrl.msg">
+
+			  </div>
+			  <button type="submit" class="btn btn-primary"
+			  ng-click="UsersCtrl.sent()">Sent</button>
+			</form>
+		</div>
+
+	</div>
+</div>
