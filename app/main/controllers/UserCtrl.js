@@ -6,18 +6,14 @@
      function UserCtrl (usersFactory, $rootScope) {
      	var vm = this;
 
+          /**
+          * @function removeUser
+          * By clicking delete the user.
+          */
+
           vm.removeUser = function(user){
                usersFactory.removeUser(user);
           };
-
-          
-
-/*
-          vm.correspondence = function(user){
-               $rootScope.$emit('user', user);
-          };
-*/
-
 
      }
 

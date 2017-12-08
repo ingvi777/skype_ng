@@ -28,6 +28,11 @@
                }
           ];
 
+      /**
+          * @method messages
+          * Returns the message.
+      */
+
       service.messages = function(response){
         var result = [];
 
@@ -42,6 +47,11 @@
          return result; 
       };
 
+      /**
+          * @method add
+          * Write to the messages.
+      */
+
       service.add = function (msg) {
         var id = _.uniqueId('msg_');
 
@@ -52,6 +62,11 @@
 
         return id;
       };
+
+      /**
+          * @method getmsg
+          * Returns an object.
+      */
 
       service.getmsg = function () {
         return messages;

@@ -26,9 +26,19 @@
              }
           ];
 
+      /**
+          * @method getUsers
+          * Returns an object.
+      */    
+
       service.getUsers = function () {
         return users;
       };
+
+      /**
+          * @method addUser
+          * Adds a user.
+      */
 
       service.addUser = function (userName, userSurname) {
         var prov = true;
@@ -50,9 +60,19 @@
         };
       };
 
+      /**
+          * @method removeUser
+          * Delete user.
+      */
+
       service.removeUser = function(user){
         _.pull(users, user); 
       };
+
+      /**
+          * @method enter
+          * Authorization.
+      */
 
       service.enter = function(nam, sur){
         var user = false;
@@ -62,7 +82,6 @@
             user = item;
               };
           });
-          //console.log(user);
           return user;
       };
 

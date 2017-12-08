@@ -32,9 +32,19 @@
                }
           ];
 
+      /**
+          * @method getid
+          * Sampling by Id.
+      */
+
       service.getid = function(user){
         return _.filter(chat, {user_id : user.user_id}); 
       };
+
+      /**
+          * @method add
+          * Adding to the entry..
+      */
 
       service.add = function (id_user, id_msg) {
 
@@ -43,7 +53,12 @@
             msg_id : id_msg
             });
 
-      }; 
+      };
+
+      /**
+          * @method getchat
+          * Return item.
+      */ 
 
       service.getchat = function () {
         return chat;
